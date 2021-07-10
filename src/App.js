@@ -11,8 +11,10 @@ function FuncChildThatWillBeWrappedInMemo( props ) {
   console.log( "FuncChildThatWillBeWrappedInMemo is called" );
   return (
     <div>
+      { console.log('console.log inside div in return of FuncChildThatWillBeWrappedInMemo is called') }
     </div>
-  )
+  );
+
 }
 const FuncChildWithMemo = React.memo( FuncChildThatWillBeWrappedInMemo );
 
@@ -47,10 +49,9 @@ class App extends Component {
   constructor() {
     super();
     console.log("App constructor is called the first and only once");
-    
   }
   componentDidMount() {
-    setTimeout(() => this.forceUpdate(), 10000)
+    setInterval(() => this.forceUpdate(), 3000)
   }
   render() {
     console.log("App render is called");
